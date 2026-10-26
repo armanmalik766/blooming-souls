@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --font-heading: "Manrope", sans-serif;
+
+  --color-primary: #700486;
+  --color-primary-dark: #58036B;
+  --color-primary-light: #8915A2;
+  --color-lavender-light: #FAF7FC;
+  --color-lavender-soft: #F3EAF6;
+  --color-lavender-border: #E8DDED;
+  --color-text-dark: #1D1D1F;
+  --color-text-secondary: #666666;
+}
+
+/* Custom Typography & Utility Classes */
+html,
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #FAF7FC;
+  color: #1D1D1F;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select,
+optgroup,
+option {
+  font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: "Manrope", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+@layer base {
+  h1:not([class*="text-"]) {
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 800;
+    line-height: 1.02;
+  }
+
+  h2:not([class*="text-"]) {
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 800;
+    line-height: 1.08;
+  }
+
+  h3:not([class*="text-"]) {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+/* Buttons */
+button {
+  font-weight: 700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8DDED;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #700486;
+}
+
+/* Glass & Soft Shadows */
+.shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(112, 4, 134, 0.08), 0 4px 12px -4px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-card {
+  box-shadow: 0 12px 35px -8px rgba(112, 4, 134, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 20px 40px -12px rgba(112, 4, 134, 0.14), 0 6px 16px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================================================= */
+/* Watch Dial Clockwise Progress & Running Dot Animations                   */
+/* ========================================================================= */
+@keyframes watchCircleProgress {
+  0% {
+    stroke-dashoffset: 1351;
+    opacity: 0.95;
+  }
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  97% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 1351;
+    opacity: 0;
+  }
+}
+
+@keyframes watchDotRunner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes watchDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.85;
+  }
+}
+
+.watch-circle-progress {
+  transform-origin: 230px 230px;
+  transform-box: view-box;
+  animation: watchCircleProgress 8s linear infinite;
+}
+
+.watch-dot-runner {
+  transform-origin: 230px 230px;
+  transform-box: view-box;
+  animation: watchDotRunner 8s linear infinite;
+}
+
+.watch-dot-pulse {
+  transform-origin: 230px 15px;
+  transform-box: view-box;
+  animation: watchDotPulse 2s ease-in-out infinite;
+}

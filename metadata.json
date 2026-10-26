@@ -1,0 +1,6 @@
+{
+  "name": "Blooming Souls - Mental Healthcare & Psychiatry",
+  "description": "Premium psychiatrist and mental-health-care platform offering psychiatric consultations, therapy, counselling, internship programs, and holistic emotional wellbeing support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
